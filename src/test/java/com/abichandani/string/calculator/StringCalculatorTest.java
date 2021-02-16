@@ -31,5 +31,12 @@ public class StringCalculatorTest {
 		assertEquals(6, StringCalculator.add("1\n2,3"));
 		assertEquals(6, StringCalculator.add("1\n2\n3"));
 	}
+	
+	@Test
+	public void supportNewProvidedDelimiters() {
+		assertEquals(3, StringCalculator.add("//;\n1;2"));
+		// could be regex meta char itself
+		assertEquals(3, StringCalculator.add("//*\n1*2"));
+	}
 
 }
