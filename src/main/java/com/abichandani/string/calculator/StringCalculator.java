@@ -9,12 +9,9 @@ public class StringCalculator {
 	public static int add(String text) {
 		if(text.isEmpty())
 			return 0;
-		else if(text.contains(",")) {
+		else {
 			List<Integer> numbers = toIntList(text.split(","));
 			return sumIntList(numbers); 
-		}
-		else {
-			return Integer.valueOf(text);
 		}
 	}
 
