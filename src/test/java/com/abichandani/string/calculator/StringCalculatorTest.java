@@ -15,5 +15,10 @@ public class StringCalculatorTest {
 	public void returnNumberForSingleNumber() {
 		assertEquals(3, StringCalculator.add("3"));
 	}
+	
+	@Test
+	public void returnSumFor2Numbers() {
+		assertEquals(3, StringCalculator.add("1,2"));
+	}
 
 }
