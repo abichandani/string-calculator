@@ -44,7 +44,7 @@ public class StringCalculator {
 	private static String[] splitByDelimiter(String text) {
 		String delimiter;
 		if(hasCustomDelimiter(text)) {
-			Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher(text);
+			Matcher matcher = Pattern.compile("//(.*)\n(.*)").matcher(text);
 			matcher.matches();
 			delimiter = Pattern.quote(matcher.group(1));
 			text = matcher.group(2);

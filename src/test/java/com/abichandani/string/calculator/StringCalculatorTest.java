@@ -69,4 +69,9 @@ public class StringCalculatorTest {
 	public void ignoreNumbersGreaterThan1000() {
 		assertEquals(6, StringCalculator.add("1\n2,3,1002"));
 	}
+	
+	@Test
+	public void supportMultiCharDelimiter() {
+		assertEquals(10, StringCalculator.add("//***\n1***2***3***4"));
+	}
 }
