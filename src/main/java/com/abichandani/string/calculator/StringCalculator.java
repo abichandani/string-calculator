@@ -10,7 +10,7 @@ public class StringCalculator {
 		if(text.isEmpty())
 			return 0;
 		else {
-			List<Integer> numbers = toIntList(text.split(","));
+			List<Integer> numbers = toIntList(text.split(",|\n"));
 			return sumIntList(numbers); 
 		}
 	}
