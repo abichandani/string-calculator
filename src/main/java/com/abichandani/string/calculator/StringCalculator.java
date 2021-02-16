@@ -16,10 +16,20 @@ public class StringCalculator {
 			List<Integer> numbers = toIntList(numbersStringArray);
 
 			// Negatives not allowed.
-			numbers.forEach(x -> isNotNegative(x));
+			List<Integer> negatives = filterNegativeNumbersFromList(numbers);
+			
+			if(negatives.size() > 0) {
+				throw new RuntimeException("Negatives not allowed : "+negatives.toString());
+			}
 			
 			return sumIntList(numbers);
 		}
+	}
+
+	private static List<Integer> filterNegativeNumbersFromList(List<Integer> numbers) {
+		return numbers.stream()
+					.filter(x -> isNegative(x))
+					.collect(Collectors.toList());
 	}
 	
 	private static String[] splitByDelimiter(String text) {
@@ -49,9 +59,11 @@ public class StringCalculator {
 		return numbers.stream().reduce(0, (x,y) -> x+y);
 	}
 	
-	private static void isNotNegative(Integer i) throws RuntimeException{
+	private static boolean isNegative(Integer i) throws RuntimeException{
 		if(i<0)
-			throw new RuntimeException("Negatives not allowed : "+i);
+			return true;
+		else
+			return false;
 	}
 
 }

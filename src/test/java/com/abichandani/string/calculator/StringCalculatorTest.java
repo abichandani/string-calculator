@@ -56,4 +56,12 @@ public class StringCalculatorTest {
 		rte = assertThrows(RuntimeException.class, () -> StringCalculator.add("//;\n-18;2"));		
 		assertTrue(rte.getMessage().contains("-18"));
 	}
+	
+	@Test
+	public void exceptionMessageShouldContainAllNegativeNumbers() {
+		RuntimeException rte = assertThrows(RuntimeException.class, () -> StringCalculator.add("-1,-13,2,-4"));		
+		assertTrue(rte.getMessage().contains("-1"));
+		assertTrue(rte.getMessage().contains("-13"));
+		assertTrue(rte.getMessage().contains("-4"));
+	}
 }
