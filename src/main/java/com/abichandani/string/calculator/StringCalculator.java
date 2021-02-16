@@ -3,7 +3,11 @@ package com.abichandani.string.calculator;
 public class StringCalculator {
 	
 	public static int add(String text) {
-		return 0;
+		if(text.isEmpty())
+			return 0;
+		else {
+			return Integer.valueOf(text);
+		}
 	}
 
 }
