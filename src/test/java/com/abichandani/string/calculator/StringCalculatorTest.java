@@ -38,5 +38,13 @@ public class StringCalculatorTest {
 		// could be regex meta char itself
 		assertEquals(3, StringCalculator.add("//*\n1*2"));
 	}
-
+	
+	@Test
+	public void shouldThrowExceptionWithNegativeNumbers() {		
+		RuntimeException rte = assertThrows(RuntimeException.class, () -> StringCalculator.add("-1,2"));		
+		assertEquals(RuntimeException.class, rte.getClass());
+		
+		rte = assertThrows(RuntimeException.class, () -> StringCalculator.add("//;\n-1;2"));		
+		assertEquals(RuntimeException.class, rte.getClass());
+	}
 }

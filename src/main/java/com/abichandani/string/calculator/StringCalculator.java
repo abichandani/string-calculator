@@ -8,12 +8,16 @@ import java.util.stream.Collectors;
 
 public class StringCalculator {
 	
-	public static int add(String text) {
+	public static int add(String text) throws RuntimeException{
 		if(text.isEmpty())
 			return 0;
 		else {
 			String[] numbersStringArray = splitByDelimiter(text);
 			List<Integer> numbers = toIntList(numbersStringArray);
+
+			// Negatives not allowed.
+			numbers.forEach(x -> isNotNegative(x));
+			
 			return sumIntList(numbers);
 		}
 	}
@@ -43,6 +47,11 @@ public class StringCalculator {
 
 	private static Integer sumIntList(List<Integer> numbers) {
 		return numbers.stream().reduce(0, (x,y) -> x+y);
+	}
+	
+	private static void isNotNegative(Integer i) throws RuntimeException{
+		if(i<0)
+			throw new RuntimeException("Negatives not allowed.");
 	}
 
 }
