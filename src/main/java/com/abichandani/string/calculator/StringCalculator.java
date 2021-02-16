@@ -51,7 +51,7 @@ public class StringCalculator {
 	
 	private static void isNotNegative(Integer i) throws RuntimeException{
 		if(i<0)
-			throw new RuntimeException("Negatives not allowed.");
+			throw new RuntimeException("Negatives not allowed : "+i);
 	}
 
 }

@@ -47,4 +47,13 @@ public class StringCalculatorTest {
 		rte = assertThrows(RuntimeException.class, () -> StringCalculator.add("//;\n-1;2"));		
 		assertEquals(RuntimeException.class, rte.getClass());
 	}
+	
+	@Test
+	public void exceptionMessageShouldContainNegativeNumber() {
+		RuntimeException rte = assertThrows(RuntimeException.class, () -> StringCalculator.add("-1,2"));		
+		assertTrue(rte.getMessage().contains("-1"));
+		
+		rte = assertThrows(RuntimeException.class, () -> StringCalculator.add("//;\n-18;2"));		
+		assertTrue(rte.getMessage().contains("-18"));
+	}
 }
