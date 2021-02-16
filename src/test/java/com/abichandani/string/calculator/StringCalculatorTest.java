@@ -64,4 +64,9 @@ public class StringCalculatorTest {
 		assertTrue(rte.getMessage().contains("-13"));
 		assertTrue(rte.getMessage().contains("-4"));
 	}
+	
+	@Test
+	public void ignoreNumbersGreaterThan1000() {
+		assertEquals(6, StringCalculator.add("1\n2,3,1002"));
+	}
 }

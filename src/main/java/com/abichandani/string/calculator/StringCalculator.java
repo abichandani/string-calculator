@@ -22,8 +22,17 @@ public class StringCalculator {
 				throw new RuntimeException("Negatives not allowed : "+negatives.toString());
 			}
 			
-			return sumIntList(numbers);
+			// Ignore numbers greater than 1000
+			List<Integer> filteredNumbers = filterNumbersLessThanOrEqualTo1000(numbers);
+			
+			return sumIntList(filteredNumbers);
 		}
+	}
+
+	private static List<Integer> filterNumbersLessThanOrEqualTo1000(List<Integer> numbers) {
+		return numbers.stream()
+						.filter(x -> x<1000)
+						.collect(Collectors.toList());
 	}
 
 	private static List<Integer> filterNegativeNumbersFromList(List<Integer> numbers) {
