@@ -74,5 +74,6 @@ public class StringCalculator {
 		else
 			return false;
 	}
-
+	
+	// Test comment
 }
